@@ -53,20 +53,20 @@
         };
 
         lower_layer {
-            display-name = "lower";
+            display-name = "numpad";
 
             // ------------------------------------------------------------------------------------------------------------
-            // |       |  F1 |  F2 |  F3  |  F4  |  F5  |                   |  F6  |  F7   |  F8   |  F9  |  F10  |  F11  |
-            // |   `   |  1  |  2  |  3   |  4   |  5   |                   |  6   |  7    |  8    |  9   |   0   |  F12  |
-            // |       |  !  |  @  |  #   |  $   |  %   |                   |  ^   |  &    |  *    |  (   |   )   |   |   |
-            // |       |  =  |  -  |  +   |  {   |  }   |        |  |       |  [   |  ]    |  ;    |  :   |   \   |       |
+            // |       |  F1 |  F2 |  F3  |  F4  |  F5  |                   |      |  /    |  -    |       |       |       |
+            // |   `   |  1  |  2  |  3   |  4   |  5   |                   |      |  7    |  8    |  9   |   *   |       |
+            // |       |  !  |  @  |  #   |  $   |  %   |                   |      |  4    |  5    |  6   |   +   |       |
+            // |       |  =  |  -  |  +   |  {   |  }   |        |  |       |  0   |  1    |  2    |  3   | ENTER |
             //               |     |      |      |      |        |  |       |      |       |       |      |
 
             bindings = <
-&trans     &kp F1     &kp F2     &kp F3    &kp F4    &kp F5                        &kp F6    &kp F7    &kp F8     &kp F9     &kp F10   &kp F11
-&kp GRAVE  &kp N1     &kp N2     &kp N3    &kp N4    &kp N5                        &kp N6    &kp N7    &kp N8     &kp N9     &kp N0    &kp F12
-&trans     &kp NB_EXCL  &kp NB_AT  &kp NB_HASH  &kp NB_DLLR  &kp NB_PRCNT                 &kp NB_CARET  &kp NB_AMPS  &kp NB_ASTRK  &kp NB_LPAR  &kp NB_RPAR  &kp NB_PIPE
-&trans     &kp NB_EQUAL  &kp NB_MINUS  &kp NB_PLUS  &kp NB_LBRC  &kp NB_RBRC  &trans     &trans  &kp NB_LBKT  &kp NB_RBKT  &kp NB_SEMI  &kp NB_COLON  &kp NB_BSLH  &trans
+&trans     &kp F1     &kp F2     &kp F3    &kp F4    &kp F5                        &trans  &trans  &kp NB_SLASH  &kp NB_MINUS  &trans       &trans
+&kp GRAVE  &kp N1     &kp N2     &kp N3    &kp N4    &kp N5                        &trans  &kp N7  &kp N8        &kp N9       &kp NB_ASTRK &trans
+&trans     &kp NB_EXCL  &kp NB_AT  &kp NB_HASH  &kp NB_DLLR  &kp NB_PRCNT                 &trans  &kp N4  &kp N5        &kp N6       &kp NB_PLUS  &trans
+&trans     &kp NB_EQUAL  &kp NB_MINUS  &kp NB_PLUS  &kp NB_LBRC  &kp NB_RBRC  &trans     &trans  &kp N0  &kp N1        &kp N2       &kp N3       &kp RET       &trans
                       &trans     &trans    &trans    &trans     &trans     &trans  &trans    &trans    &trans     &trans
             >;
 
@@ -74,20 +74,20 @@
         };
 
         raise_layer {
-            display-name = "numpad";
+            display-name = "navigation";
 
             // ------------------------------------------------------------------------------------------------------------
-            // | BTCLR | BT1  | BT2  |  BT3  |  BT4  |  BT5 |                |      |      |   /   |   -   |       |       |
-            // |       | INS  | PSCR | GUI   |       |      |                |      |  7   |   8   |   9   |   *   |       |
-            // |       | ALT  | CTRL | SHIFT |       | CAPS |                |      |  4   |   5   |   6   |   +   |       |
-            // |       | UNDO | CUT  | COPY  | PASTE |      |      |  |      |  0   |  1   |   2   |   3   | ENTER |       |
+            // | BTCLR | BT1  | BT2  |  BT3  |  BT4  |  BT5 |                |      |      |       |       |       |       |
+            // |       | INS  | PSCR | GUI   |   ,   |  .   |                | PGUP |      |  UP   |       |       |       |
+            // |       | ALT  | CTRL | SHIFT |   +   |  -   |                | PGDN | LEFT | DOWN  | RIGHT | DEL   | BSPC  |
+            // |       | UNDO | CUT  | COPY  | PASTE |      |      |  |      |      |      |       |       |       |
             //                |      |       |       |      |      |  |      |      |      |       |      |
 
             bindings = <
-&bt BT_CLR  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4                       &trans  &trans    &kp NB_SLASH   &kp NB_MINUS  &trans   &trans
-&trans      &kp INS       &kp PSCRN     &kp K_CMENU   &trans        &trans                             &trans  &kp N7    &kp N8         &kp N9        &kp NB_ASTRK &trans
-&trans      &kp LALT      &kp LCTRL     &kp LSHFT     &trans        &kp CLCK                           &trans  &kp N4    &kp N5         &kp N6        &kp NB_PLUS  &trans
-&trans      &kp K_UNDO    &kp K_CUT     &kp K_COPY    &kp K_PASTE   &studio_unlock  &trans     &trans  &kp N0  &kp N1    &kp N2         &kp N3        &kp RET      &trans
+&bt BT_CLR  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4                       &trans    &trans    &trans   &trans    &trans  &trans
+&trans      &kp INS       &kp PSCRN     &kp K_CMENU   &kp NB_COMMA  &kp NB_DOT                         &kp PG_UP &trans    &kp UP    &trans    &trans  &trans
+&trans      &kp LALT      &kp LCTRL     &kp LSHFT     &kp NB_PLUS   &kp NB_MINUS                       &kp PG_DN &kp LEFT  &kp DOWN  &kp RIGHT &kp DEL  &kp BSPC
+&trans      &kp K_UNDO    &kp K_CUT     &kp K_COPY    &kp K_PASTE   &studio_unlock  &trans     &trans    &trans   &trans    &trans  &trans    &trans    &trans
                           &trans        &trans        &trans        &trans          &trans     &trans  &trans  &trans    &trans         &trans
             >;
 
